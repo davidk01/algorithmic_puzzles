@@ -80,7 +80,6 @@ end
 
 class PuzzleState
   attr_reader :left_bank, :right_bank
-  attr_writer :farmer_position
 
   @@disallowed_pairs = [[:w, :g], [:g, :c]]
 
