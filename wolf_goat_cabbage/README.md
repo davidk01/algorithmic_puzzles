@@ -2,8 +2,8 @@
 A man wants to a get a wolf, a goat, and a head of cabbage
 from one side of the river to the other on a boat. The wrinkle
 is that in his absence the wolf will eat the goat and the goat
-will eat the cabbage. Show that it is possible to get all 3 from
-one side to the other.
+will eat the cabbage and he can only carry one item at a time.
+Show that it is possible to get all 3 from one side to the other.
 
 # Solution Strategy
 Start with a seed game state and continue expanding and pruning newly generated
