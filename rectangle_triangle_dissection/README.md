@@ -1,5 +1,5 @@
 # Puzzle Statement
-Find all values of `n > 1` for which one can dissect a rectangle into n right triangles and outline an algorithm for doing such a dissection
+Find all values of `n > 1` for which one can dissect a rectangle into `n` right triangles and outline an algorithm for doing such a dissection.
 
 # Solution Strategy
 We are going to start with the algorithm and work our way to the numbers. Suppose we have a rectangle that is not a square, i.e. its width does
@@ -11,8 +11,11 @@ the square into `4` equal parts and then turn each of those pieces into `2`, `3`
 
 We are going to encode all of the above operations as a set of rewrite rules. We will represent a rectangle that is not a square with `R`, a sqaure
 with `S`, and a right triangle with `T`. The rewrite rules will be `R -> RR | SR | TT`, `S -> SSSS | TT | TTT | TTTT`. Now a bit more analysis will
-reveal which numbers end up being right triangle dissections. So now suppose `n` is even in that case we just take `k = n/2` and apply the rule `R -> RR`
-repeatedly `k` times and then apply `R -> TT` to get `2k = 2(n/2) = n` right triangles. This means that every even number is a result of some triangle
-dissection. Now suppose the number is not even, e.g. `n = 2k + 1`. If we subtract `3` from `n` then we get `n - 3 = 2k + 1 - 3 = 2k - 2 = 2(k - 1)` which
-is an even number so we have reduced it to a case we already know and to deal with `3` we just need to apply the rule `R -> SR` once to get a square that
-we can then dissect into `3` right triangles. This leaves us with `R` which we can proceed with as in the previous case for an even number.
+reveal which numbers end up being right triangle dissections. 
+
+Suppose `n = 2k`. To get a dissection that gives us `n` right triangles take `k = n/2` and apply the rule `R -> RR`
+repeatedly `k` times. This gives us a string of length `k` with all `R`s. Next apply `R -> TT` to get `2k = 2(n/2) = n` right triangles. This shows that every even number is a result of some triangle
+dissection. Now suppose `n = 2k + 1`. If we subtract `3` from `n` then we get `n - 3 = 2k + 1 - 3 = 2k - 2 = 2(k - 1)` which
+is an even number so we have reduced it to a case we already know. To deal with `3` we just need to apply the rule `R -> SR` once to get a square that
+we can then dissect into `3` right triangles. This leaves us with an `R` which we can proceed with as in the previous case. Putting the two dissection together we get `2(k - 1) + 3 = n`. The only
+number that this analysis breaks down for is the number `3`. For every other number we can produce a dissection that has `n` right triangles.
