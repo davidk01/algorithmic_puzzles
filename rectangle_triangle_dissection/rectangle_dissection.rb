@@ -7,6 +7,21 @@
 # that the immediate children are in an array.
 
 class TreeNode < Struct.new(:node_value, :children)
+
+  def apply_rules
+    if children.any?
+      raise StandardError, "Transformations can only be applied to leaf nodes."
+    end
+    case node_value
+    when 'R' # R -> RR | SR | TT
+      children = [TreeNode.new('R', []), TreeNode.new('S', [])]
+    when 'S' # S -> SSSS | TT | TTT | TTTT
+      leaf = TreeNode.new('S', [])
+    else
+      raise StandardError, "No applicable rule found for node value: #{node_value}."
+    end
+  end
+
 end
 
 class RewriteRules
