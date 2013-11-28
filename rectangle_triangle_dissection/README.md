@@ -19,3 +19,5 @@ dissection. Now suppose `n = 2k + 1`. If we subtract `3` from `n` then we get `n
 is an even number so we have reduced it to a case we already know. To deal with `3` we just need to apply the rule `R -> SR` once to get a square that
 we can then dissect into `3` right triangles. This leaves us with an `R` which we can proceed with as in the previous case. Putting the two dissection together we get `2(k - 1) + 3 = n`. The only
 number that this analysis breaks down for is the number `3`. For every other number we can produce a dissection that has `n` right triangles.
+
+You are invited to find more efficient dissections by figuring out how to minimize the number of rule applications to get a particular number of triangles.
