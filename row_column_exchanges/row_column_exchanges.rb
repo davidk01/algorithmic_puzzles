@@ -14,15 +14,12 @@ second_table = [
  [4, 2, 3, 1]
 ]
 
-# now just keep track of the size and continue
-# apply permutations to elements in the set until we
-# get to a fixed point
-seed = Set.new([first_table])
-previous_seed_size = -1
-current_seed_size = seed.size
-while previous_seed_size != current_seed_size
-  puts "Expanding seed."
-  previous_seed_size = seed.size
+##
+# Expand the seed set with the permutations of the rows and columns
+# until we reach a fixed point.
+
+def expander(seed)
+  old_seed_size = seed.size
   row_column_permutations = seed.map do |matrix|
     row_permutations = matrix.permutation
     # transpose, apply permutations, transpose back
@@ -33,12 +30,16 @@ while previous_seed_size != current_seed_size
     row_permutations.each {|m| seed << m}
     column_permutations.each {|m| seed << m}
   end
-  current_seed_size = seed.size
+  if seed.size == old_seed_size
+    seed
+  else
+    expander(seed)
+  end
 end
 
-puts "Seed expansion reached fixed point. Checking to see if second table is in the orbit."
-seed << second_table
-if seed.size == current_seed_size
+fixed_point = expander(Set.new([first_table]))
+fixed_point_size = fixed_point.size
+if fixed_point_size == (fixed_point << second_table).size
   puts "Second table is in the orbit."
 else
   puts "Second table is not in the orbit."
