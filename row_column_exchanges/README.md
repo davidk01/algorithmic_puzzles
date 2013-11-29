@@ -1,5 +1,5 @@
 # Puzzle Statement
-Can one transform the table on top to the table on the bottom by applying a sequence of row and column operations?
+Can one transform the table on top to the table on the bottom by applying a sequence of row and column exchanges?
 
 | 1      | 2      | 3      | 4       |
 | ------ | ------ | ------ | ------: |
@@ -15,7 +15,9 @@ Can one transform the table on top to the table on the bottom by applying a sequ
 | 4      | 2      | 3      | 1       |
 
 # Solution Strategy
-We are going to use some very basic group theory to solve this one. All we need are some basic facts about permutations groups, group actions,
+We are going to use some very basic group theory to solve this one. All we need are some basic facts about permutation groups, group actions,
 and orbits. This puzzle is really just asking whether the second table is in the orbit of the first table under the action of the group of permutations
 of rows and columns. So starting with the set that just contains the first table we are just going to act on it with the group until we can not get any more
 new elements. At that point we'll know that we have the entire orbit and we can check to see if the second table is in the orbit.
+
+There is an easier invariant to check to find out whether the second table can be reached from the first by a sequence of row and column exchanges that does not require enumerating the entire orbit of the first table and you are welcome to find it.
