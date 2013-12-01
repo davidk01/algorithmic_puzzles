@@ -11,4 +11,6 @@ to get to the upper right corner. 63 moves means that the final color the knight
 white but the uppper right corner is black so such a tour is impossible.
 
 The algorithmic solution is to just enumerate all possible state expansions starting at the lower
-left corner and then show that we end up with the empty set.
+left corner and then show that we end up with the empty set. This strategy turns out to be
+unfeasible because of what's known us the open knight tour problem and this puzzle is an instance
+of such a problem. See http://en.wikipedia.org/wiki/Knight%27s_tour.
